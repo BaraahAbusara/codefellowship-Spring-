@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div sec:authorize="isAnonymous()">
+    <h1>Welcome to the home page</h1>
+    <form action="/signup" method="GET">
+        <h1>Don't have an account? Signup! </h1>
+        <button type="submit">Signup</button>
+    </form>
+    <form action="/signin" method="GET">
+        <h1>Already registered? Sign in </h1>
+        <button type="submit">Sign in</button>
+    </form>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <h1> you are in !</h1>
+    <form action="/myprofile" method="GET">
+        <h1>Got to your profile </h1>
+        <button type="submit">Profile</button>
+    </form>
+
+    <form action="/logout-process" method="GET">
+        <button type="submit">Sign out</button>
+    </form>
+</div>
+</body>
+</html>
