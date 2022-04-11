@@ -1,22 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link th:href="@{/signup.css}" rel="stylesheet">
+
 <head>
     <meta charset="UTF-8">
     <title>Sign in</title>
 </head>
 <body>
-<h1>Sign in Page</h1>
-<form action="/signin-process" method="POST">
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username">
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-    <button type="submit">Sign in</button>
-</form>
-<form action="/signup" method="GET">
-    <h1>Don't have an account? Signup! </h1>
-    <button type="submit">Signup</button>
-</form>
+
+<div class="signup__container">
+    <div class="container__child signup__thumbnail">
+
+        <div class="thumbnail__content text-center">
+            <h1 class="heading--primary">< / Code Fellows ></h1>
+            <h2 class="heading--secondary">Are you ready to start you trip?</h2>
+            <h1>SIGN IN NOW !</h1>
+        </div>
+    </div>
+
+<div class="container__child signup__form">
+    <form action="/signin-process" method="POST">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" type="text" name="username" id="username" placeholder="james.bond" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" type="password" name="password" id="password" placeholder="********" required />
+        </div>
+
+        <div class="m-t-lg">
+            <ul class="list-inline">
+                <input class="btn btn--form" type="submit" value="Sign in" />
+                <br>
+            </ul>
+        </div>
+    </form>
+    <ul class="list-inline">
+        <form action="/" method="GET">
+            <input class="btn btn--form" type="submit" value="Home" />
+        </form>
+        <br>
+        <a class="signup__link" href="/signup">I am not a member</a>
+    </ul>
+</div>
+</div>
 
 </body>
 </html>

@@ -6,7 +6,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
-
+@Getter
+@Setter
 @Entity
 public class ApplicationUser implements UserDetails {
 
@@ -15,10 +16,10 @@ public class ApplicationUser implements UserDetails {
 
     private String password;
 
-    String firstName;
-    String lastName;
-    String dateOfBirth;
-    String bio;
+    private String firstName;
+    private String lastName;
+    private String dateOfBirth;
+    private String bio;
 
     @Setter(value= AccessLevel.NONE)
     @Id

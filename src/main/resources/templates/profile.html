@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link th:href="@{/profile.css}" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <title>My Profile</title>
 </head>
 <body>
 <header>
-    <img src="https://www.seekpng.com/png/detail/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png" alt="default profile picture">
-    <h2>Welcome to your profile</h2>
+
+    <div class="container">
+        <p class="lead">  < / code fellows > </p>
+        <div class="header-bar">
+            <h1 class="logo"> < / > </h1>
+            <ul class="slider-menu">
+                <li>
+                    <form action="/" method="GET">
+                        <button type="submit">Home</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/logout-process" method="GET">
+                        <button type="submit">Sign out</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
 </header>
 <main>
-    <form action="/logout-process" method="GET">
-        <button type="submit">Sign out</button>
-    </form>
 
-    <form action="/" method="GET">
-        <button type="submit">Home</button>
-    </form>
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+        <div class="container">
+            <img src="https://www.seekpng.com/png/detail/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png" alt="default profile picture" style="width:45%;" class="w3-round"><br><br>
+
+            <h4 th:text="${user.getFirstName()}"></h4>
+            <h5 th:text="${user.getBio()}"></h5>
+        </div>
+
+    </nav>
+
+
+
 </main>
 <footer>
 

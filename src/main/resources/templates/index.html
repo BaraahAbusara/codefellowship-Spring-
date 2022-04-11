@@ -1,31 +1,116 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
+    <title>W3.CSS Template</title>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+body,h1,h5 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('https://coda.newjobs.com/api/imagesproxy/ms/cms/content30/images/how-to-become-a-computer-programmer.png');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
 </head>
 <body>
-<div sec:authorize="isAnonymous()">
-    <h1>Welcome to the home page</h1>
-    <form action="/signup" method="GET">
-        <h1>Don't have an account? Signup! </h1>
-        <button type="submit">Signup</button>
-    </form>
-    <form action="/signin" method="GET">
-        <h1>Already registered? Sign in </h1>
-        <button type="submit">Sign in</button>
-    </form>
-</div>
-<div sec:authorize="isAuthenticated()">
-    <h1> you are in !</h1>
-    <form action="/myprofile" method="GET">
-        <h1>Got to your profile </h1>
-        <button type="submit">Profile</button>
-    </form>
+<div class="bgimg w3-display-container w3-text-white"  >
+    <div class="w3-display-middle w3-jumbo">
+        <p>< /Code Fellows ></p>
+        <h4 >Code Fellows is the Pacific Northwest’s premier technical skills training academy, delivering high-quality live instruction both online and in person to people from all backgrounds.</h4>
+    </div>
+    <div class="w3-display-topleft w3-container w3-xlarge" sec:authorize="isAnonymous()">
+        <form action="/signin" method="GET">
+        <p><button  type="submit" class="w3-button w3-black">Sign in</button></p>
+        </form>
+        <form action="/signup" method="GET">
+        <p><button type="submit" class="w3-button w3-black">Sign up</button></p>
+        </form>
+    </div>
+    <div class="w3-display-topleft w3-container w3-xlarge"  sec:authorize="isAuthenticated()">
+        <form action="/myprofile" method="GET">
+            <p><button  type="submit" class="w3-button w3-black">Profile</button></p>
+        </form>
 
-    <form action="/logout-process" method="GET">
-        <button type="submit">Sign out</button>
-    </form>
+        <form action="/logout-process" method="GET">
+            <button type="submit" class="w3-button w3-black">Sign out</button>
+        </form>
+    </div>
+    <div class="w3-display-bottomleft w3-container">
+        <p>Made by <a href="https://github.com/BaraahAbusara" target="_blank">Baraáh Abusara</a></p>
+    </div>
 </div>
+
+
 </body>
 </html>
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">&ndash;&gt;-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">&ndash;&gt;-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+<!--    <title>Home</title>-->
+
+<!--    <style>-->
+<!--        body,h1,h5 {font-family: "Raleway", sans-serif}-->
+<!--        body, html {height: 100%}-->
+<!--        .bgimg {-->
+<!--          background-image: url('https://coda.newjobs.com/api/imagesproxy/ms/cms/content30/images/how-to-become-a-computer-programmer.png');-->
+<!--          min-height: 100%;-->
+<!--          background-position: center;-->
+<!--          background-size: cover;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div sec:authorize="isAnonymous()">-->
+
+<!--    <div class="bgimg w3-display-container w3-text-white">-->
+<!--        <div class="w3-display-middle w3-jumbo">-->
+<!--            <h1> < / Code Fellows > </h1>-->
+<!--        </div>-->
+<!--        <div class="w3-display-topleft w3-container w3-xlarge">-->
+<!--            <form action="/signup" method="GET">-->
+<!--            <button type="submit" class="w3-button w3-black">Signup</button>-->
+<!--            </form>-->
+<!--                <form action="/signin" method="GET">-->
+<!--                    <button type="submit" class="w3-button w3-black">Sign in</button>-->
+<!--                </form>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+<!--    &lt;!&ndash;    <h1>Welcome to the home page</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    <form action="/signup" method="GET">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h1>Don't have an account? Signup! </h1>&ndash;&gt;-->
+<!--&lt;!&ndash;        <button type="submit">Signup</button>&ndash;&gt;-->
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+<!--&lt;!&ndash;    <form action="/signin" method="GET">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h1>Already registered? Sign in </h1>&ndash;&gt;-->
+<!--&lt;!&ndash;        <button type="submit">Sign in</button>&ndash;&gt;-->
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+<!--</div>-->
+<!--<div sec:authorize="isAuthenticated()">-->
+<!--    <h1> you are in !</h1>-->
+<!--    <form action="/myprofile" method="GET">-->
+<!--        <h1>Got to your profile </h1>-->
+<!--        <button type="submit">Profile</button>-->
+<!--    </form>-->
+
+<!--    <form action="/logout-process" method="GET">-->
+<!--        <button type="submit">Sign out</button>-->
+<!--    </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

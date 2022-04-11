@@ -1,31 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link th:href="@{/signup.css}" rel="stylesheet">
+
 <head>
     <meta charset="UTF-8">
     <title>Signup</title>
 </head>
 <body>
-<form action="/signup" method="POST">
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username">
-    <br>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-    <br>
-    <label for="firstName">FirstName</label>
-    <input type="text" name="firstName" id="firstName">
-    <br>
-    <label for="lastName">LastName</label>
-    <input type="text" name="lastName" id="lastName">
-    <br>
-    <label for="dateOfBirth">Date of Birth</label>
-    <input type="text" name="dateOfBirth" id="dateOfBirth">
-    <br>
-    <label for="bio">Bio</label>
-    <input type="text" name="bio" id="bio">
-    <br>
-    <button type="submit">Submit</button>
-</form>
 
+<div class="signup__container">
+    <div class="container__child signup__thumbnail">
+
+        <div class="thumbnail__content text-center">
+            <h1 class="heading--primary">< / Code Fellows ></h1>
+            <h2 class="heading--secondary">Are you ready to join the elite?</h2>
+            <h1>SIGN UP NOW !</h1>
+        </div>
+    </div>
+
+
+    <div class="container__child signup__form">
+        <form action="/signup" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" type="text" name="username" id="username" placeholder="james.bond" required />
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name </label>
+                <input class="form-control" type="text" name="firstName" id="firstName" placeholder="james" required />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input class="form-control" type="text" name="lastName" id="lastName" placeholder="bond"  />
+            </div>
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth</label>
+                <input class="form-control" type="date" name="dateOfBirth" id="dateOfBirth"   />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" type="password" name="password" id="password" placeholder="********" required />
+            </div>
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <input class="form-control" type="bio" name="bio" id="bio" placeholder="Tell us about yourself.." required />
+            </div>
+
+            <div class="m-t-lg">
+                <ul class="list-inline">
+
+                        <input class="btn btn--form" type="submit" value="Register" />
+                    <br>
+
+                </ul>
+
+            </div>
+        </form>
+        <ul class="list-inline">
+            <form action="/" method="GET">
+                <input class="btn btn--form" type="submit" value="Home" />
+            </form>
+            <br>
+            <a class="signup__link" href="/siginin">I am already a member</a>
+        </ul>
+    </div>
+</div>
 </body>
 </html>
+
