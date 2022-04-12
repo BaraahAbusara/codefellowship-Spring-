@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <link th:href="@{/profile.css}" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <head>
     <meta charset="UTF-8">
     <title>My Profile</title>
@@ -24,48 +23,43 @@
                         <button type="submit">Sign out</button>
                     </form>
                 </li>
+                <li>
+                    <form action="/myprofile" method="GET">
+                        <button type="submit">My profile</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
 </header>
 <main>
-
+    <form  th:action="@{/users/{id}(id=${thisUser.id})}" method="GET" >
     <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
         <div class="container">
             <img src="https://www.seekpng.com/png/detail/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png" alt="default profile picture" style="width:45%;" class="w3-round"><br><br>
 
-            <h4 th:text="${user.getFirstName()}"></h4>
-            <h4 th:text="${user.getDateOfBirth()}"></h4>
-            <h5 th:text="${user.getBio()}"></h5>
+            <h4 th:text="${thisUser.getFirstName()}"></h4>
+            <h4 th:text="${thisUser.getDateOfBirth()}"></h4>
+            <h5 th:text="${thisUser.getBio()}"></h5>
         </div>
-
     </nav>
-    <div>
-            <form  th:action="@{'/myprofile/'+${user.id}+'/addpost'}" method="POST" >
-                <div class="card" >
-                    <input type="text" name="postBody" class="textarea" placeholder="what's in your mind?" />
-                    <button type="submit" class="post-button">Post</button>
-                </div>
-            </form>
-    </div>
+    </form>
 
-    <ul th:each="post: ${newPosts}">
-    <div class="post-container">
-        <div class="post-content">
-            <h3 class="post-h3" th:text="${post.createAt}"></h3>
-            <h1 class="post-h1" th:text="${post.body}"></h1>
-        </div>
-    </div>
+<!--    <ul th:each="post: ${posts}">-->
+<!--        <div class="post-container">-->
+<!--            <div class="post-content">-->
+<!--                <h3 class="post-h3" th:text="${post.createAt}"></h3>-->
+<!--                <h1 class="post-h1" th:text="${post.body}"></h1>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </ul>-->
 
-    </ul>
 
 
 
 </main>
 <footer>
-    <div class="w3-display-bottomright w3-container">
-        <p>Made by <a href="https://github.com/BaraahAbusara" target="_blank">Baraáh Abusara</a></p>
-    </div>
+
 </footer>
 </body>
 </html>
