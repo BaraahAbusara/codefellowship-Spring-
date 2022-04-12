@@ -9,7 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
+import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
+import org.thymeleaf.spring5.ISpringTemplateEngine;
+import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.thymeleaf.templateresolver.ITemplateResolver;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -34,9 +40,9 @@ public class GeneralController {
     @GetMapping("/users/{id}")
     String viewAlbum (@PathVariable Integer id , Model model) {
         ApplicationUser thisUser = appUserRepo.findById(id).orElseThrow();
-
-        model.addAttribute("thisUser",thisUser);
+        //attach posts
         model.addAttribute("posts",thisUser.getPosts());
+        model.addAttribute("thisUser",thisUser);
 
         return "userDetails.html";
     }
@@ -44,16 +50,28 @@ public class GeneralController {
 
     @PostMapping("/myprofile/{id}/addpost")
     public RedirectView addPost( @RequestParam String postBody , @PathVariable Integer id , Model model){
-        Post post = new Post(postBody,"20");
+        //create post
+        Post post = new Post(postBody, LocalDateTime.now().toString());
+        //find related user
         ApplicationUser thisUser = appUserRepo.findById(id).orElseThrow();
+        //set the author
         post.setAuthor(thisUser);
+        //update posts
         List<Post> newPosts = thisUser.getPosts();
         newPosts.add(post);
         thisUser.setPosts(newPosts);
+        //save the post
         postRepo.save(post);
-
+        //attach posts
         model.addAttribute("newPosts",newPosts);
         return new RedirectView ("/myprofile");
+    }
+
+    private ISpringTemplateEngine templateEngine(ITemplateResolver templateResolver) {
+        SpringTemplateEngine engine = new SpringTemplateEngine();
+        engine.addDialect(new Java8TimeDialect());
+        engine.setTemplateResolver(templateResolver);
+        return engine;
     }
 
 
