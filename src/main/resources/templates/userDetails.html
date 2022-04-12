@@ -38,21 +38,22 @@
         <div class="container">
             <img src="https://www.seekpng.com/png/detail/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png" alt="default profile picture" style="width:45%;" class="w3-round"><br><br>
 
-            <h4 th:text="${thisUser.getFirstName()}"></h4>
+            <h3 th:text="${thisUser.getFirstName()}"></h3>
             <h4 th:text="${thisUser.getDateOfBirth()}"></h4>
-            <h5 th:text="${thisUser.getBio()}"></h5>
+            <h4 th:text="${thisUser.getBio()}"></h4>
         </div>
     </nav>
     </form>
 
-<!--    <ul th:each="post: ${posts}">-->
-<!--        <div class="post-container">-->
-<!--            <div class="post-content">-->
-<!--                <h3 class="post-h3" th:text="${post.createAt}"></h3>-->
-<!--                <h1 class="post-h1" th:text="${post.body}"></h1>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </ul>-->
+    <ul th:each="post: ${posts}">
+        <div >
+            <div >
+                <p th:text="${#dates.format(post.createdAt, 'HH:mm')}"></p>
+
+                <h1  th:text="${post.body}"></h1>
+            </div>
+        </div>
+    </ul>
 
 
 

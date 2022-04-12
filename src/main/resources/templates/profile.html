@@ -50,10 +50,10 @@
     </div>
 
     <ul th:each="post: ${newPosts}">
-    <div class="post-container">
-        <div class="post-content">
-            <h3 class="post-h3" th:text="${post.createAt}"></h3>
-            <h1 class="post-h1" th:text="${post.body}"></h1>
+    <div >
+        <div>
+            <h3  th:text="${post.createdAt}"></h3>
+            <h1  th:text="${post.body}"></h1>
         </div>
     </div>
 
