@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #848484;
+}
+
+.cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  margin: 40px;
+  position: relative;
+  max-width: 250px;
+  max-height: 350px;
+  box-shadow: 0 40px 60px -6px black;
+}
+
+.card-title {
+  display: block;
+  text-align: center;
+  color: #fff;
+  background-color: #6184a8;
+  padding: 2%;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.card img {
+  width: 100%;
+  height: 98%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+}
+
+.card-desc {
+  display: block;
+  font-size: 1.2rem;
+  position: absolute;
+  height: 0;
+  top: 0;
+  opacity: 0;
+  padding: 18px 8%;
+  background-color: white;
+  overflow-y: scroll;
+  transition: 0.8s ease;
+}
+
+.card:hover .card-desc {
+  opacity: 1;
+  height: 100%;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin: 40px 0 20px 0;
+  text-align: center;
+}
+.container {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	color: #fff;
+}
+.lead { font-family: 'Quicksand'; }
+.header-bar {
+	position: relative;
+	width: 50%;
+	min-width: 300px;
+	height: 50px;
+	border: 10px solid transparent;
+	border-top: 10px solid #fffa;
+	border-left: 10px solid #fffa;
+	box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.25) inset;
+}
+.header-bar::after {
+	content: '';
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	width: 30%;
+	height: 49px;
+	border: 10px solid transparent;
+	border-bottom: 10px solid #fffa;
+	border-right: 10px solid #fffa;
+	transition: 0.3s linear all;
+}
+.header-bar > .logo {
+	position: absolute;
+	top: calc(50% - 20px);
+	left: 10px;
+	transform: translateY(-50%);
+	color: #fffc;
+	font-family: 'Parisienne', cursive;
+	cursor: default;
+	user-select: none;
+}
+.slider-menu {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+}
+.slider-menu > li {
+	display: inline-flex;
+	padding: 14px;
+	margin-left: 2px;
+	font-family: 'Quicksand', sans-serif;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.3s linear all;
+	user-select: none;
+}
+.slider-menu > li:hover {
+	color: #faa;
+	box-shadow: 0 50px 5px rgba(0, 0, 0, 0.15) inset;
+}

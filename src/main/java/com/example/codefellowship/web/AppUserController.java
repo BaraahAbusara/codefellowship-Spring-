@@ -2,11 +2,13 @@ package com.example.codefellowship.web;
 
 import com.example.codefellowship.domain.ApplicationUser;
 import com.example.codefellowship.infrastructure.AppUserRepo;
+import com.example.codefellowship.infrastructure.PostRepo;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +21,8 @@ public class AppUserController {
     PasswordEncoder encoder;
     @Autowired
     AppUserRepo appUserRepo;
+    @Autowired
+    PostRepo postRepo;
 
     @GetMapping("/signin")
     public String getLoginPage(){
@@ -39,7 +43,6 @@ public class AppUserController {
 
     @GetMapping("/myprofile")
     public String getProfile(){
-
         return "profile.html";
     }
 

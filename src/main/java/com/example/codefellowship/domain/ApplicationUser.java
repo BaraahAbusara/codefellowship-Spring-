@@ -6,6 +6,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -38,6 +40,9 @@ public class ApplicationUser implements UserDetails {
 
     public ApplicationUser() {
     }
+
+    @OneToMany(mappedBy = "author")
+    List<Post> posts;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

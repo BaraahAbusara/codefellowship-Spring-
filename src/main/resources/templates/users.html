@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link th:href="@{/users.css}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<header>
+    <div class="container">
+        <p class="lead">  < / All Users > </p>
+        <div class="header-bar">
+            <h1 class="logo"> < / > </h1>
+            <ul class="slider-menu">
+                <li>
+                    <form action="/" method="GET">
+                        <button type="submit">Home</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/logout-process" method="GET">
+                        <button type="submit">Sign out</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/myprofile" method="GET">
+                        <button type="submit">My profile</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<h1>All users</h1>
+<div class="cards">
+    <ul th:each="user: ${usersList}">
+        <form  th:action="@{/users/{id}(id=${user.id})}" method="GET" >
+            <div class="card" >
+                <h2 th:text="${user.firstName}" class="card-title" ></h2>
+                <img src="https://www.seekpng.com/png/detail/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png" alt="default profile picture">
+                <p  th:text="${user.bio}" class="card-desc" ></p>
+                <button type="submit">User Details</button>
+            </div>
+        </form>
+    </ul>
+</div>
+
+</body>
+</html>
