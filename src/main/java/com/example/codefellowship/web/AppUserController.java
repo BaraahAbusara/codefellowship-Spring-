@@ -65,5 +65,9 @@ public class AppUserController {
         else
             return null;
     }
+    @GetMapping("/error")
+    public String customError() {
+        return "error.html";
+    }
 
 }
