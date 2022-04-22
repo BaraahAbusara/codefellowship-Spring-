@@ -5,6 +5,8 @@ import com.example.codefellowship.domain.Post;
 import com.example.codefellowship.infrastructure.AppUserRepo;
 import com.example.codefellowship.infrastructure.PostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,7 @@ import org.thymeleaf.spring5.ISpringTemplateEngine;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -65,6 +68,16 @@ public class GeneralController {
         //attach posts
         model.addAttribute("newPosts",newPosts);
         return new RedirectView ("/myprofile");
+    }
+
+    @GetMapping("/feed")
+    public String getFeed (Model model){
+        ApplicationUser userNow = (ApplicationUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("userNow",userNow);
+        List <Post> posts = postRepo.findAllByAuthor(userNow.getUsername());
+        model.addAttribute("posts",posts);
+
+        return "feed.html";
     }
 
 //    private ISpringTemplateEngine templateEngine(ITemplateResolver templateResolver) {

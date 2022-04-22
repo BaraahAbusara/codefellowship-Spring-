@@ -10,28 +10,28 @@
 </head>
 <body>
 <header>
-    <div class="container">
-        <p class="lead">  < / All Users > </p>
-        <div class="header-bar">
-            <h1 class="logo"> < / > </h1>
-            <ul class="slider-menu">
-                <li>
-                    <form action="/" method="GET">
-                        <button type="submit">Home</button>
-                    </form>
-                </li>
-                <li>
-                    <form action="/logout-process" method="GET">
-                        <button type="submit">Sign out</button>
-                    </form>
-                </li>
-                <li>
-                    <form action="/myprofile" method="GET">
-                        <button type="submit">My profile</button>
-                    </form>
-                </li>
-            </ul>
-        </div>
+    <div th:replace="common ::myHeader">
+<!--        <p class="lead">  < / All Users > </p>-->
+<!--        <div class="header-bar">-->
+<!--            <h1 class="logo"> < / > </h1>-->
+<!--            <ul class="slider-menu">-->
+<!--                <li>-->
+<!--                    <form action="/" method="GET">-->
+<!--                        <button type="submit">Home</button>-->
+<!--                    </form>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <form action="/logout-process" method="GET">-->
+<!--                        <button type="submit">Sign out</button>-->
+<!--                    </form>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <form action="/myprofile" method="GET">-->
+<!--                        <button type="submit">My profile</button>-->
+<!--                    </form>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
     </div>
 </header>
 
@@ -48,6 +48,13 @@
         </form>
     </ul>
 </div>
+
+<footer>
+    <footer>
+        <div th:replace="common ::myFooter"></div>
+
+</footer>
+</footer>
 
 </body>
 </html>

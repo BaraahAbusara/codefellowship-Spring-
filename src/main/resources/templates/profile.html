@@ -38,6 +38,7 @@
             <h4 th:text="${user.getFirstName()}"></h4>
             <h4 th:text="${user.getDateOfBirth()}"></h4>
             <h5 th:text="${user.getBio()}"></h5>
+
         </div>
 
     </nav>
@@ -63,10 +64,12 @@
 
 
 </main>
-<footer>
-    <div class="w3-display-bottomright w3-container">
-        <p>Made by <a href="https://github.com/BaraahAbusara" target="_blank">Baraáh Abusara</a></p>
-    </div>
-</footer>
+<!--<footer>-->
+<!--    <div class="w3-display-bottomright w3-container">-->
+<!--        <p>Made by <a href="https://github.com/BaraahAbusara" target="_blank">Baraáh Abusara</a></p>-->
+<!--    </div>-->
+<!--</footer>-->
+<div th:replace="common ::myFooter"></div>
+
 </body>
 </html>

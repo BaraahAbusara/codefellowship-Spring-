@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{/profile.css}" rel="stylesheet">
+</head>
+<body>
+<div th:fragment="myHeader">
+    <header>
+        <div class="container">
+            <p class="lead">  < / code fellows > </p>
+            <div class="header-bar">
+                <h1 class="logo"> < / > </h1>
+                <ul class="slider-menu">
+                    <li>
+                        <form action="/" method="GET">
+                            <button type="submit">Home</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="/logout-process" method="GET">
+                            <button type="submit">Sign out</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="/myprofile" method="GET">
+                            <button type="submit">My profile</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+</div>
+<div th:fragment="myHeader2">
+    <header>
+        <div class="container">
+            <p class="lead">  < / code fellows > </p>
+            <div class="header-bar">
+                <h1 class="logo"> < / > </h1>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div th:fragment="myFooter">
+    <div class="w3-display-bottomleft w3-container">
+        <p>Created by <a href="https://github.com/BaraahAbusara" target="_blank">Baraáh Abusara</a></p>
+    </div>
+</div>
+
+</body>
+</html>
+
+<!--Helpful video about fragments : https://www.youtube.com/watch?v=iUlGEuC4tBw-->

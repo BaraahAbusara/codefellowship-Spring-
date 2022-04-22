@@ -29,6 +29,11 @@
                         <button type="submit">My profile</button>
                     </form>
                 </li>
+                <li>
+                    <form th:action="@{/follow/{id}(id=${thisUser.id})}" method="POST">
+                        <button type="submit">Follow</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
@@ -42,6 +47,9 @@
             <h3 th:text="${thisUser.getFirstName()}"></h3>
             <h4 th:text="${thisUser.getDateOfBirth()}"></h4>
             <h4 th:text="${thisUser.getBio()}"></h4>
+
+
+
         </div>
     </nav>
     </form>
@@ -49,7 +57,7 @@
     <ul th:each="post: ${posts}">
         <div >
             <div >
-                <p th:text="${#dates.format(post.createdAt, 'HH:mm')}"></p>
+                <p th:text="${post.createdAt}"></p>
 
                 <h1  th:text="${post.body}"></h1>
             </div>
@@ -61,7 +69,7 @@
 
 </main>
 <footer>
-
+    <div th:replace="common ::myFooter"></div>
 </footer>
 </body>
 </html>
