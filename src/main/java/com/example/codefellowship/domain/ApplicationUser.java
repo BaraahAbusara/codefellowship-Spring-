@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
+@Data
 @Getter
 @Setter
 @Entity
@@ -43,6 +44,16 @@ public class ApplicationUser implements UserDetails {
 
     @OneToMany(mappedBy = "author")
     List<Post> posts;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_user",
+            joinColumns = {@JoinColumn(name = "from_id")},
+            inverseJoinColumns = {@JoinColumn(name = "to_id")}
+    )
+    public List<ApplicationUser> following;
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

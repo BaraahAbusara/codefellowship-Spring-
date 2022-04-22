@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Feed</title>
+</head>
+<body>
+<header>
+    <div th:replace="common ::myHeader"></div>
+</header>
+<div class="cards">
+    <ul th:each="post: ${posts}">
+            <div class="card" >
+                <h2 th:text="${userNow.username}" class="card-title" ></h2>
+                <br>
+                <h2  th:text="${post.body}" ></h2>
+                <br>
+                <p  th:text="${post.createdAt}" ></p>
+            </div>
+    </ul>
+</div>
+
+<footer>
+    <div th:replace="common ::myFooter"></div>
+</footer>
+
+</body>
+</html>
